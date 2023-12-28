@@ -1,6 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import {HomeScreen} from '../screens/HomeScreen';
-import {Todos} from '../screens/Todos';
+import {Todos} from '../screens/TodosScreen';
 
 export type RootStackParams = {
   HomeScreen: undefined;
