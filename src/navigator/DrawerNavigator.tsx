@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {StackNavigator} from './StackNavigator';
 import {Settings} from '../screens/SettingsScreen';
 import {drawerStyles} from '../theme/drawerStyles';
+import {useThemeContext} from '../context/ThemeContext';
 
 export type RootDrawerParams = {
   Home: undefined;
@@ -29,13 +30,16 @@ export const DrawerNavigator = () => {
 };
 
 const DrawerContent = ({navigation}: DrawerContentComponentProps) => {
+  const {
+    theme: {colors},
+  } = useThemeContext();
   return (
     <DrawerContentScrollView
       style={{
-        backgroundColor: '#00A294',
+        backgroundColor: colors.primary,
       }}>
       <View style={{...drawerStyles.icon}}>
-        <Icon name="list-circle-outline" color="#FFF" size={60} />
+        <Icon name="list-circle-outline" color={colors.text} size={60} />
         <Text style={{...drawerStyles.txtButton}}>TODO APP</Text>
       </View>
       <View>
@@ -43,7 +47,7 @@ const DrawerContent = ({navigation}: DrawerContentComponentProps) => {
           onPress={() => navigation.navigate('Home')}
           style={{...drawerStyles.button}}
           activeOpacity={0.6}>
-          <Icon name="home" size={17} color="#FFF" />
+          <Icon name="home" size={17} color={colors.text} />
           <Text style={{...drawerStyles.txtButton}}>Home</Text>
         </TouchableOpacity>
 
@@ -51,7 +55,7 @@ const DrawerContent = ({navigation}: DrawerContentComponentProps) => {
           onPress={() => navigation.navigate('Settings')}
           style={{...drawerStyles.button}}
           activeOpacity={0.6}>
-          <Icon name="cog" size={17} color="#FFF" />
+          <Icon name="cog" size={17} color={colors.text} />
           <Text style={{...drawerStyles.txtButton}}>Settings</Text>
         </TouchableOpacity>
       </View>

@@ -15,6 +15,7 @@ export const StackNavigator = () => {
       initialRouteName="HomeScreen"
       screenOptions={{
         headerShown: false,
+        cardStyle: {backgroundColor: '#FFF'},
       }}>
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="Todos" component={Todos} />
